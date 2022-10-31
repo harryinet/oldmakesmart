@@ -4,4 +4,4 @@ asdasdasd
 
 sdsdffsdf
 
-![[shubham-dhage-xvWdG34_uQY-unsplash.jpg|300]]
+![](assets/shubham-dhage-xvWdG34_uQY-unsplash.jpg)
