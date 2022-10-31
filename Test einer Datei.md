@@ -7,4 +7,4 @@ sdsdffsdf
 ![](assets/shubham-dhage-xvWdG34_uQY-unsplash.jpg)
 
 
-<img src="assets/shubham-dhage-xvWdG34_uQY-unsplash.jpg" width="200" />
+<img src="assets/shubham-dhage-xvWdG34_uQY-unsplash.jpg" width="350" />
