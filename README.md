@@ -2,6 +2,8 @@
 ## Idee
 Steueren des TA250 von Bosch für z.B. Junkers Gasheizungen über den Homeassiatant.
 
+![](assets/Screenshot_2022-11-06_192653.png)
+
 An dieser über 20 Jahre alten Steuerung soll folgendes über Homeassistant gesteuert werden, jede Funktion wird durch einen kurze Tastendruck auf die jeweilige Taste aktiviert.
 
 * Sparbetrieb toggle ON/OFF
@@ -394,14 +396,6 @@ mode: single
 
 ```
 
-##### Eine Logik mit Timer muss programmiert werden
-* [ ] Wasser getrennte Flags für Kurz und Lang Wasser. Das geht, allerdings bremst die Wartzeit die weitere Bearbeitung aus für den vollständigen Speicher. 
-	* [ ] Wasser Vollständig deaktivieren, solange Kurz läuft.
-	* [ ] Wasser erhöhen wenn nur Kurz geschaltet iste
-	* [ ] Mit Timer dazu was programmieren
-* [ ] Wasser Temperatur prüfen und dann schon ausschalten, als Signal Button aus
-* [ ] Wasser Big Button Funktion prüfen [due:: 2022-11-06]
-
 ##### Zirkulationspumpe steuern
 Des Weiteren lässt sich ein kleiner, lange vermisster Luxus einbauen.
 Mit einem Shelly 1L kann man nun anhand der Wasserspeicher Temparatur erlauben, dass diese aben zirkuliert.
@@ -456,6 +450,21 @@ action:
     domain: switch
 mode: single
 ```
+
+
+##### Eine Logik mit Timer muss programmiert werden
+* [ ] Wasser getrennte Flags für Kurz und Lang Wasser. Das geht, allerdings bremst die Wartzeit die weitere Bearbeitung aus für den vollständigen Speicher. 
+	* [ ] Wasser Vollständig deaktivieren, solange Kurz läuft.
+	* [ ] Wasser erhöhen wenn nur Kurz geschaltet iste
+	* [ ] Mit Timer dazu was programmieren
+* [ ] Wasser Temperatur prüfen und dann schon ausschalten, als Signal Button aus
+* [ ] Wasser Big Button Funktion prüfen [due:: 2022-11-06]
+
+##### Ist es einfacher die dauer anhand der Ist-Temperatur zu überprüfen?!?
+- [ ] Warmwasser erzeugen lassen bis Temperatur erreicht ist
+- [ ] Temperatur aus Heizung als Vorgabe prüfen
+- [ ] Abgleich Grundtemperatur anhand von Kurve und Zeitdauer ermitteln
+
 
 ## Worauf zu achten ist
 Da es keine Rückmeldung von dem TA250 an einen Optokoppler oder ähnlich gibt, ist der TA250 ab und zu in Augenschein zu nehmen, ob die Einstellungen mit dem Dashboard des Homeassistant übereinstimmen. Man korrigiert das dann mit einem Druck der Taste auf dem TA250. Dies geschieht bei uns im Vorbeigehen, da das Dashboard auf dem Google Nest Hub 2 dicht bei dem TA250 steht.
