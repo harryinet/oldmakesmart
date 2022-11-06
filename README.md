@@ -399,7 +399,9 @@ mode: single
 Des Weiteren lässt sich ein kleiner, lange vermisster Luxus einbauen.
 Mit einem Shelly 1L kann man nun anhand der Wasserspeicher Temparatur erlauben, dass diese aben zirkuliert.
 
-Zur Geschichte, vor 20 Jahren sagte der Heizungsmonteur, die Warmwasser- Zirkulationspumpe dürfe nicht immer laufen, da diese sonst die Sonnenenergie schmälert. Ach ja, unser Warmwasser wird vorranging über einen Solarthermie Kollektoren erwärmt.
+Zur Geschichte, vor 20 Jahren sagte der Heizungsmonteur, die Warmwasser- Zirkulationspumpe dürfe nicht immer laufen, da diese sonst die Sonnenenergie schmälert. Somit hatten wir eine Art Treppenlichtschalter dafür, der vor dem Duschen gedrückt wurde. 
+
+Unser Warmwasser wird möglichst evorranging über einen Solarthermie Kollektoren erwärmt.
 
 So erlaub ich es, sofern das Wasser über 33° C hat, in gewisssen Abständen die Warmwasser Zirkulationspumpe laufen zu lassen.
 
