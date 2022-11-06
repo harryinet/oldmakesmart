@@ -312,19 +312,85 @@ Hier noch nicht beschrieben ist eine Logic, die anhand der vorhandenen Temperatu
 
 Die Logik der alten Heizung ist, wenn Warmwasser AN, dann Heize alle 150 Liter bis 50° C.
 
-Wenn eine Einzelperson Duschen möchte ist das ca. nur zur Hälfte nötig.
+Wenn eine Einzelperson Duschen möchte ist das ca. nur zur Hälfte nötig. So ergibt sich folgende Funktion für das Dashboard.
+
+![[Screenshot 2022-11-06 164341.png|450]]
 
 ##### Warmwasser AN/AUS mit Flag, ob schon gesetzt.
+```YAML
+alias: TA250 Wasser an D2
+description: Toggle Taste Wasser + über Pin D2
+trigger: []
+condition: []
+action:
+  - type: turn_on
+    device_id: 090e8bda57306f97f7fe1fee3f272733
+    entity_id: switch.esp01_2way_a_out_0
+    domain: switch
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 0
+      milliseconds: 700
+  - type: turn_off
+    device_id: 090e8bda57306f97f7fe1fee3f272733
+    entity_id: switch.esp01_2way_a_out_0
+    domain: switch
+mode: single
+```
 
-* [x] Wasser AN mit Flag [prio:: A]
-* [x] Wasser AUS mit Flag [prio:: A]
-* [x] Flag setzen per Button "TA250 Wasser an" [prio:: A]
-* [x] Wasser 13 Minuten AN [prio:: A]
+##### Warmwasser kurz einschalten und Zirkulation aktivieren
+```YAML
+alias: TA250 Warmwasser 1 Person
+description: TA250 Warmwasser 1 Pers
+trigger: []
+condition: []
+action:
+  - choose:
+      - conditions:
+          - condition: state
+            entity_id: input_boolean.ta250_wasser_kurz
+            state: "off"
+        sequence:
+          - service: input_boolean.turn_on
+            data: {}
+            target:
+              entity_id: input_boolean.ta250_wasser_kurz
+          - service: automation.trigger
+            data: {}
+            target:
+              entity_id: automation.ta250_wasser_an
+          - delay:
+              hours: 0
+              minutes: 12
+              seconds: 0
+              milliseconds: 0
+          - service: automation.trigger
+            data: {}
+            target:
+              entity_id: automation.ta250_zirkulation_einschalten
+          - delay:
+              hours: 0
+              minutes: 8
+              seconds: 0
+              milliseconds: 0
+          - service: automation.trigger
+            data: {}
+            target:
+              entity_id: automation.ta250_wasser_an
+          - service: input_boolean.turn_off
+            data: {}
+            target:
+              entity_id: input_boolean.ta250_wasser_kurz
+    default: []
+mode: single
+
+```
 
 ##### Eine Logik mit Timer muss programmiert werden
 * [ ] Wasser getrennte Flags für Kurz und Lang Wasser. Das geht, allerdings bremst die Wartzeit die weitere Bearbeitung aus für den vollständigen Speicher. 
 	* [ ] Wasser Vollständig deaktivieren, solange Kurz läuft.
-	* [ ] Wasser erhöhen wenn nur Kurz geschaltet ist
+	* [ ] Wasser erhöhen wenn nur Kurz geschaltet iste
 	* [ ] Mit Timer dazu was programmieren
 * [ ] Wasser Temperatur prüfen und dann schon ausschalten, als Signal Button aus
 * [ ] Wasser Big Button Funktion prüfen [due:: 2022-11-06]
