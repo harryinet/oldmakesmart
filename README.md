@@ -347,8 +347,6 @@ mode: single
 
 ##### Warmwasser kurz einschalten und Zirkulation aktivieren
 
-![](assets/Screenshot_2022-11-06_191116.png)
-
 ```YAML
 alias: TA250 Warmwasser 1 Person
 description: TA250 Warmwasser 1 Pers
@@ -413,6 +411,8 @@ Zur Geschichte, vor 20 Jahren sagte der Heizungsmonteur, die Warmwasser- Zirkula
 Unser Warmwasser wird möglichst evorranging über einen Solarthermie Kollektoren erwärmt.
 
 So erlaub ich es, sofern das Wasser über 33° C hat, in gewisssen Abständen die Warmwasser Zirkulationspumpe laufen zu lassen.
+
+![](assets/Screenshot_2022-11-06_191116.png)
 
 ```YAML
 alias: TA250 Zirkulation einschalten
