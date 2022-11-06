@@ -1,27 +1,11 @@
----
-title: TA250 Smart machen
-created_date: 2022-10-03
-created_time: 10:27
-
-project: Fichtenweg
-subproject: Heizung Smart
-summary:
-
-type: 
-Aliases: 
-Tags: homeassistant esp32
-
----
 # TA250 Smart machen
-Immer die Einstellungen am TA250 prüfen 
-
 ## Idee
-Steueren des TA250 für z.B. Junkers Gasheizungen über den Homeassiatant.
+Steueren des TA250 von Bosch für z.B. Junkers Gasheizungen über den Homeassiatant.
 
 An dieser über 20 Jahre alten Steuerung soll folgendes über Homeassistant gesteuert werden, jede Funktion wird durch einen kurze Tastendruck auf die jeweilige Taste aktiviert.
 
 * Sparbetrieb toggle ON/OFF
-* Warmwasser toggle JA/NEIN + (plus Taste
+* Warmwasser toggle JA/NEIN + (plus Taste)
 
 Der Gedanke ist, die jeweiligen Tasten per Optokoppler für einen kurzen Moment, ca. 700 msec, zu überbrücken um den Tstendruck zu simulieren.
 
@@ -49,9 +33,9 @@ Gemäß Anleitung kann man das Erhitzen von Wasser mit der +/- Taste starten ode
 Nochmaliges Drücken der + (plus) Taste schaltet das Heizen wieder ab.
 
 #### Bilder Gerät
-![[20221003_113725.jpg|500]]
+![[20221003_113725.jpg|350]]
 
-![[20221003_113735 1.jpg|500]]
+![[20221003_113735.jpg|350]]
 
 ## Erweiterung TA250
 Per Homeassistant soll Tasten "gedrückt" werden.
@@ -60,17 +44,18 @@ Per Homeassistant soll Tasten "gedrückt" werden.
 * Sparbetrieb gelbe Taste. Die Taste toggelt den Sparbetrieb auf EIN oder AUS, angezeigt über die geleb LED "Ein".
 
 ### Verdrahtung auf der Platine
-![[20220717_094846.jpg|500]]
+
+![[20220717_094846.jpg|350]]
 TA250 front
 
-![[20220717_094826.jpg|500]]
+![[20220717_094826.jpg|350]]
 TA250 back
 
 * Schwarz = Masse (ground)
 * Orange = Sparbetrieb geleb Taste. Die Taste toggelt den Sparbetrieb auf EIN oder AUS.
 * Blau = Warmwasser + (plus)
 
-![[20220717_105049.jpg|300]]  
+![[20220717_105049.jpg|300]]
 
 ![[20220717_105055.jpg|300]]
 
@@ -82,61 +67,71 @@ TA250 back
 ##### Aufbau
 ![[20221008_120255.jpg|400]]
 NodeMCU
+
 ![[20221008_121334.jpg|400]]
 Relaisboard
+
+Oben seht ihr den Prototyp, später wurde ein kombiniertes 2-Relay-ESP01 Board verwendet wie dieses hier drunter. Die Programmierung des ESP01 ist im Internet merhfach beschrieben, ich nutzte einen USB Adapter für die erste Programmierung über ESPhome im Homeassistant.
+
+![[Screenshot 2022-11-06 123633.png|300]]
 
 ##### Einige Zeilen Code für ESPhome
 ```yaml
 esphome:
-  name: mcu-a
+  name: esp01-2way-a
 esp8266:
-  board: nodemcuv2
+  board: esp01_1m
 # Enable logging
 logger:
 # Enable Home Assistant API
 api:
   encryption:
-    key: "******"
+    key: "5QrKf43uLMvlgXqGMgvKB1edummy"
 ota:
-  password: "******"
+  password: "979bc85d45963dummy"
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid: "Mcu-A Fallback Hotspot"
-    password: "******"
+    ssid: "esp01-2way-a Fallback Hotspot"
+    password: "2kVGhdummy"
 
 captive_portal:
 
 switch:   #HA -) ESP -) Pin
-
   - platform: gpio
     pin:
-      number: D4 #Internal LED switching
+      number: 2 #Internal LED switching
       inverted: True  
-    name: "MCU-A Internal LED"
+    name: "esp01-2way-a Internal LED"
     id: internal_led
-
   - platform: gpio
     pin:
-      number: D1 #Output 1
+      number: 0 #Output 0
       inverted: True  
-    name: "MCU-A OUT-D1"
-    id: output_d1
-
-  - platform: gpio
-    pin:
-      number: D2 #Output 2
-      inverted: True  
-    name: "MCU-A OUT-D2"
-    id: output_d2 
+    name: "esp01-2way-a Out 0"
+    id: output_d0
 ```
 
+## Homeassistant programmieren
+### Heizung
+* Energiesparen AN mit Flag
+* Energiesparen AUS mit Flag
+* Energiesparen AN wenn keine Heizung benötigt wird
+
+
+### Warmwasser
+
+
+
+## Worauf zu achten ist
+Da es keine Rückmeldung von dem TA250 an einen Optokoppler oder ähnlich gibt, ist der TA250 ab und zu in Augenschein zu nehmen, ob die Einstellungen mit dem Dashboard des Homeassistant übereinstimmen. Man korrigiert das dann mit einem Druck der Taste auf dem TA250. Dies geschieht bei uns im Vorbeigehen, da das Dashboard auf dem Google Nest Hub 2 dicht bei dem TA250 steht.
+
+Hier ein älteres Video zu einigen Dashboards im Google Nest Hub 2 [Beloved lovelaces ... dashboards ... no cloud needed. - YouTube](https://www.youtube.com/watch?v=Owj9DGhnhpk)
 
 ### Funktionen in Homeassistant
-* [x] Energiesparen AN mit Flag [prio:: A]
-* [x] Energiesparen AUS mit Flag [prio:: A]
+
 * [x] Flag setzen per Button "TA250 Sparbetrieb an" [prio:: A]
 * [x] Wasser AN mit Flag [prio:: A]
 * [x] Wasser AUS mit Flag [prio:: A]
@@ -161,8 +156,4 @@ switch:   #HA -) ESP -) Pin
 
 ### Ausblick
 Gerne würde ich noch die Status LED des TA250 für "Energiesparen" als Input in den NodeMCU aufnehmen, über den Optokoppler. Jedoch fehlt mir hierzu die Information, wo der 5V Wert abzugreifen ist.
-
-
-### ToDo´s
-- [ ] Schaltplan zeichen für TA250
-
+- [ ] Rückmeldung für LED "Sparbetrieb" irgenwie herstellen
