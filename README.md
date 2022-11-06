@@ -14,7 +14,7 @@ Es ergeben sich dann folgende Möglichkeiten, die im Homeassistant zu programmie
 ## Ein Ergebnis vorne Weg
 Durch konsquentes Abschalten und zielgereichtetes Einschalten der Heizung und des Warmen Wassers, welches ebenfalls über Solarthemie gewonnen wird, konnten in 12 Monaten ca. 1.000m³ an Gas eingespart werden.
 
-![](assets/Screenshot_20221106_162811.jpg|450)
+![](assets/Screenshot_20221106_162811.jpg)
 
 #### Sparbetrieb
 * Sparbetrieb einschalten, Gas aus, abschalten aller Pumpen. 
@@ -38,9 +38,9 @@ Gemäß Anleitung kann man das Erhitzen von Wasser mit der +/- Taste starten ode
 Nochmaliges Drücken der + (plus) Taste schaltet das Heizen wieder ab.
 
 #### Bilder Gerät
-![](assets/20221003_113725.jpg|350)
+![](assets/20221003_113725.jpg)
 
-![](assets/20221003_113735.jpg|350)
+![](assets/20221003_113735.jpg)
 
 ## Erweiterung TA250
 Per Homeassistant soll Tasten "gedrückt" werden.
@@ -50,35 +50,35 @@ Per Homeassistant soll Tasten "gedrückt" werden.
 
 ### Verdrahtung auf der Platine
 
-![](assets/20220717_094846.jpg|350)
+![](assets/20220717_094846.jpg)
 TA250 front
 
-![](assets/20220717_094826.jpg|350)
+![](assets/20220717_094826.jpg)
 TA250 back
 
 * Schwarz = Masse (ground)
 * Orange = Sparbetrieb geleb Taste. Die Taste toggelt den Sparbetrieb auf EIN oder AUS.
 * Blau = Warmwasser + (plus)
 
-![](assets/20220717_105049.jpg|200)
+![](assets/20220717_105049.jpg )
 
-![](assets/20220717_105055.jpg|300)
+![](assets/20220717_105055.jpg )
 
-![](assets/20220717_104908.jpg|300)
+![](assets/20220717_104908.jpg )
 
 ### Material aus der Schublade
 * NodeMCU [ESP8266 NodeMcu Pinout - ESP8266 Shop (esp8266-shop.com)](https://esp8266-shop.com/esp8266-guide/esp8266-nodemcu-pinout/)
 * 2 Kanal Relay Board
 ##### Aufbau
-![](assets/20221008_120255.jpg|400)
+![](assets/20221008_120255.jpg )
 NodeMCU
 
-![](assets/20221008_121334.jpg|400)
+![](assets/20221008_121334.jpg )
 Relaisboard
 
 Oben seht ihr den Prototyp, später wurde ein kombiniertes 2-Relay-ESP01 Board verwendet wie dieses hier drunter. Die Programmierung des ESP01 ist im Internet merhfach beschrieben, ich nutzte einen USB Adapter für die erste Programmierung über ESPhome im Homeassistant.
 
-![](assets/Screenshot_2022-11-06_123633.png|300)
+![](assets/Screenshot_2022-11-06_123633.png )
 
 #### Ein einfache Gehäuse 3D gedruckt
 Ein passendes Gehäuse kann man z.B. hier finden und ist schnell gedruckt ...
@@ -192,7 +192,7 @@ max: 10
 ##### Button im Dashboard mit Code
 Wenn man diesen antippt, dann wechselt je nach Status die Farbe und der Text, und die Taste wird über das Relay für 0,7 sec. gedrückt.
 
-![](assets/Screenshot_2022-11-06_153520.png|150)
+![](assets/Screenshot_2022-11-06_153520.png)
 
 ```YAML
   - show_name: true
@@ -213,15 +213,15 @@ Wenn man diesen antippt, dann wechselt je nach Status die Farbe und der Text, un
 Um die Sache an dieser Stelle noch ganz rund zu machen zähle ich die Generic Thermostate, die überheupt eine Heizung benötigen. Das hilft besonders in der Übergangsjahreszeit. Es gibt Räume mit großen Fenstern, die bei Sonneneinstrahlung schon von selbst über 22° C erreichen, oder es kann sein, dass die Aussentemperatur an einem Tag ausreicht und am anderen Tag wieder niedrig ist. Vielleicht komme ich noch später dazu die Steuerung der Fussbodenheizung zu beschreiben, die eben aus 10x Generic Thermostat und 5x ON/OFF Schaltern besteht.
 
 Basis sind diverse XIAOMI Raumthermometer und 8-Relay Tasmota Platinen, das mit 230V Aktoren, hier ein Beispiel.
-![](assets/20211127_123720.jpg|500)
+![](assets/20211127_123720.jpg)
 
 Auf jeden Fall nutze ich den Sparbetrieb um auch den letzten Gas- und Stromverbauch der Heizung so gering wie möglich zu halten.
 
 Genereic Thermostat und ON/OFF
-![](assets/Screenshot_2022-11-06_154814.png|450)
+![](assets/Screenshot_2022-11-06_154814.png)
 
 Zählen der Thermostate
-![](assets/Screenshot_2022-11-06_124401.png|300)
+![](assets/Screenshot_2022-11-06_124401.png)
 
 Sensor zum Zählen es können Genereic Thermostate über friendly_name ausgeschlossen werden
 ```YAML
@@ -314,7 +314,7 @@ Die Logik der alten Heizung ist, wenn Warmwasser AN, dann Heize alle 150 Liter b
 
 Wenn eine Einzelperson Duschen möchte ist das ca. nur zur Hälfte nötig. So ergibt sich folgende Funktion für das Dashboard.
 
-![](assets/Screenshot_2022-11-06_164341.png|450)
+![](assets/Screenshot_2022-11-06_164341.png)
 
 ##### Warmwasser AN/AUS mit Flag, ob schon gesetzt.
 ```YAML
