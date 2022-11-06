@@ -75,7 +75,11 @@ Oben seht ihr den Prototyp, später wurde ein kombiniertes 2-Relay-ESP01 Board v
 
 ![[Screenshot 2022-11-06 123633.png|300]]
 
-##### Einige Zeilen Code für ESPhome
+#### Ein einfache Gehäuse 3D gedruckt
+
+
+
+#### Einige Zeilen Code für ESPhome
 ```yaml
 esphome:
   name: esp01-2way-a
