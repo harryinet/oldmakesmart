@@ -346,6 +346,9 @@ mode: single
 ```
 
 ##### Warmwasser kurz einschalten und Zirkulation aktivieren
+
+![](assets/Screenshot_2022-11-06_191116.png)
+
 ```YAML
 alias: TA250 Warmwasser 1 Person
 description: TA250 Warmwasser 1 Pers
