@@ -12,8 +12,9 @@ Der Gedanke ist, die jeweiligen Tasten per Optokoppler für einen kurzen Moment,
 Es ergeben sich dann folgende Möglichkeiten, die im Homeassistant zu programmieren sind.
 
 ## Ein Ergebnis vorne Weg
-Durch konsquentes Abschalten und zielgereichtetes Einschalten der Heizung und des Warmen Wassers, welches ebenfalls über Solarthemie gewonnen wird, konnten im Jahr ca. 1.000m³ an Gas eingespart werden.
+Durch konsquentes Abschalten und zielgereichtetes Einschalten der Heizung und des Warmen Wassers, welches ebenfalls über Solarthemie gewonnen wird, konnten in 12 Monaten ca. 1.000m³ an Gas eingespart werden.
 
+![[Screenshot_20221106_162811.jpg|450]]
 
 #### Sparbetrieb
 * Sparbetrieb einschalten, Gas aus, abschalten aller Pumpen. 
@@ -312,6 +313,8 @@ Hier noch nicht beschrieben ist eine Logic, die anhand der vorhandenen Temperatu
 Die Logik der alten Heizung ist, wenn Warmwasser AN, dann Heize alle 150 Liter bis 50° C.
 
 Wenn eine Einzelperson Duschen möchte ist das ca. nur zur Hälfte nötig.
+
+##### Warmwasser AN/AUS mit Flag, ob schon gesetzt.
 
 * [x] Wasser AN mit Flag [prio:: A]
 * [x] Wasser AUS mit Flag [prio:: A]
