@@ -60,7 +60,7 @@ TA250 back
 * Orange = Sparbetrieb geleb Taste. Die Taste toggelt den Sparbetrieb auf EIN oder AUS.
 * Blau = Warmwasser + (plus)
 
-![](assets/20220717_105049.jpg|300)
+![](assets/20220717_105049.jpg|200)
 
 ![](assets/20220717_105055.jpg|300)
 
@@ -78,7 +78,7 @@ Relaisboard
 
 Oben seht ihr den Prototyp, später wurde ein kombiniertes 2-Relay-ESP01 Board verwendet wie dieses hier drunter. Die Programmierung des ESP01 ist im Internet merhfach beschrieben, ich nutzte einen USB Adapter für die erste Programmierung über ESPhome im Homeassistant.
 
-![](assets/Screenshot 2022-11-06 123633.png|300)
+![](assets/Screenshot_2022-11-06_123633.png|300)
 
 #### Ein einfache Gehäuse 3D gedruckt
 Ein passendes Gehäuse kann man z.B. hier finden und ist schnell gedruckt ...
@@ -192,7 +192,7 @@ max: 10
 ##### Button im Dashboard mit Code
 Wenn man diesen antippt, dann wechselt je nach Status die Farbe und der Text, und die Taste wird über das Relay für 0,7 sec. gedrückt.
 
-![](assets/Screenshot 2022-11-06 153520.png|150)
+![](assets/Screenshot_2022-11-06_153520.png|150)
 
 ```YAML
   - show_name: true
@@ -218,10 +218,10 @@ Basis sind diverse XIAOMI Raumthermometer und 8-Relay Tasmota Platinen, das mit 
 Auf jeden Fall nutze ich den Sparbetrieb um auch den letzten Gas- und Stromverbauch der Heizung so gering wie möglich zu halten.
 
 Genereic Thermostat und ON/OFF
-![](assets/Screenshot 2022-11-06 154814.png|450)
+![](assets/Screenshot_2022-11-06_154814.png|450)
 
 Zählen der Thermostate
-![](assets/Screenshot 2022-11-06 124401.png|300)
+![](assets/Screenshot_2022-11-06_124401.png|300)
 
 Sensor zum Zählen es können Genereic Thermostate über friendly_name ausgeschlossen werden
 ```YAML
@@ -314,7 +314,7 @@ Die Logik der alten Heizung ist, wenn Warmwasser AN, dann Heize alle 150 Liter b
 
 Wenn eine Einzelperson Duschen möchte ist das ca. nur zur Hälfte nötig. So ergibt sich folgende Funktion für das Dashboard.
 
-![](assets/Screenshot 2022-11-06 164341.png|450)
+![](assets/Screenshot_2022-11-06_164341.png|450)
 
 ##### Warmwasser AN/AUS mit Flag, ob schon gesetzt.
 ```YAML
