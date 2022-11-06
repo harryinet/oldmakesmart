@@ -51,9 +51,11 @@ Per Homeassistant soll Tasten "gedrückt" werden.
 ### Verdrahtung auf der Platine
 
 ![](assets/20220717_094846.jpg)
+
 TA250 front
 
 ![](assets/20220717_094826.jpg)
+
 TA250 back
 
 * Schwarz = Masse (ground)
@@ -71,9 +73,11 @@ TA250 back
 * 2 Kanal Relay Board
 ##### Aufbau
 ![](assets/20221008_120255.jpg )
+
 NodeMCU
 
 ![](assets/20221008_121334.jpg )
+
 Relaisboard
 
 Oben seht ihr den Prototyp, später wurde ein kombiniertes 2-Relay-ESP01 Board verwendet wie dieses hier drunter. Die Programmierung des ESP01 ist im Internet merhfach beschrieben, ich nutzte einen USB Adapter für die erste Programmierung über ESPhome im Homeassistant.
@@ -218,9 +222,11 @@ Basis sind diverse XIAOMI Raumthermometer und 8-Relay Tasmota Platinen, das mit 
 Auf jeden Fall nutze ich den Sparbetrieb um auch den letzten Gas- und Stromverbauch der Heizung so gering wie möglich zu halten.
 
 Genereic Thermostat und ON/OFF
+
 ![](assets/Screenshot_2022-11-06_154814.png)
 
 Zählen der Thermostate
+
 ![](assets/Screenshot_2022-11-06_124401.png)
 
 Sensor zum Zählen es können Genereic Thermostate über friendly_name ausgeschlossen werden
