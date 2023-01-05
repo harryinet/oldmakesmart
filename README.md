@@ -18,7 +18,7 @@ Durch konsquentes Abschalten und zielgereichtetes Einschalten der Heizung und de
 
 ![](assets/Screenshot_20221106_162811.jpg)
 
-<img src="https://user-images.githubusercontent.com/link-to-your-image.png" width="200" />
+<img src="assets/Screenshot_20221106_162811.jpg" width="200" />
 
 #### Sparbetrieb
 * Sparbetrieb einschalten, Gas aus, abschalten aller Pumpen. 
