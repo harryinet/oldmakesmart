@@ -18,6 +18,8 @@ Durch konsquentes Abschalten und zielgereichtetes Einschalten der Heizung und de
 
 ![](assets/Screenshot_20221106_162811.jpg)
 
+[[assets/Screenshot_20221106_162811.jpg \| height=48px]]
+
 <img src="assets/Screenshot_20221106_162811.jpg" width="200" />
 
 #### Sparbetrieb
